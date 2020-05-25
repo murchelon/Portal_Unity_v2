@@ -1,12 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UI;
 using UnityEngine;
 
 public class Portal : MonoBehaviour {
 
     [Header ("Main Settings")]
+
+    // portal a ser conectado a este sendo instanciado
     public Portal linkedPortal;
-    public MeshRenderer screen;
+
+    // plano renderizando a camera, neste portal
+    // 1
+    public MeshRenderer renderPlane;
+    
+    //2
+    //private MeshRenderer renderPlane;
+
+    // formatos de plano
+    public enum PlaneShape { Square, Sphere };
+    public PlaneShape planeShape;
 
 
     // Private variables
@@ -29,6 +42,9 @@ public class Portal : MonoBehaviour {
     void Init_Portal()
     {
         // define as posicoes inici
+
+        Debug.Log(planeShape);
+
         Init_CameraPosition();
 
         Init_ScreenRenders();
@@ -52,18 +68,31 @@ public class Portal : MonoBehaviour {
 
 
 
-        // 
+        // define o render plane deste portal
 
-        Renderer rend = linkedPortal.screen.GetComponent<MeshRenderer>();
+
+
+        // 1
+        Renderer rend = linkedPortal.renderPlane.GetComponent<MeshRenderer>();
 
         if (rend != null)
         {
-            Material renderPlane_material = Resources.Load("Materials/renderPlane_material", typeof(Material)) as Material;
-
+            Material renderPlane_material = Resources.Load("Materials/Core/renderPlane_material", typeof(Material)) as Material;
             rend.sharedMaterial = renderPlane_material;
         }
 
-        //linkedPortal.screen.material = "";
+
+        //// 2
+        //renderPlane = GameObject.Find("renderPlaneSquare").GetComponent<MeshRenderer>();
+
+        //if (renderPlane != null)
+        //{
+        //    Material renderPlane_material = Resources.Load("Materials/Core/renderPlane_material", typeof(Material)) as Material;
+
+        //    renderPlane.sharedMaterial = renderPlane_material;
+        //}
+
+
 
 
         if (viewTexture == null || viewTexture.width != Screen.width || viewTexture.height != Screen.height)
@@ -79,8 +108,12 @@ public class Portal : MonoBehaviour {
             portalCam.targetTexture = viewTexture;
 
             // Display the view texture on the screen of the linked portal
-            linkedPortal.screen.material.SetTexture("_MainTex", viewTexture);
 
+            // 1
+            linkedPortal.renderPlane.material.SetTexture("_MainTex", viewTexture);
+
+            // 2
+            //linkedPortal.renderPlane.material.SetTexture("_MainTex", viewTexture);
         }
     }
 
