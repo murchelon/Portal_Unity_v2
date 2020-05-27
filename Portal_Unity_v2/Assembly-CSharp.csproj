@@ -63,9 +63,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Core\Portal.cs" />
+    <Compile Include="Assets\Resources\Portal_v2\Scripts\Portal.cs" />
     <Compile Include="Assets\Scripts\FPS\FPSController.cs" />
-    <None Include="Assets\Scripts\Core\Shaders\ScreenCutoutShader_Brackeys.shader" />
+    <None Include="Assets\Resources\Portal_v2\Shaders\ScreenCutoutShader_Brackeys.shader" />
     <Reference Include="UnityEngine">
       <HintPath>D:/Unity_Editors/2019.3.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

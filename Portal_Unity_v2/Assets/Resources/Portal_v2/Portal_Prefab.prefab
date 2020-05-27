@@ -282,7 +282,9 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 799194061766690515}
+  - {fileID: 9055243019123410442}
   m_Father: {fileID: 3959825112589497909}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -390,7 +392,7 @@ GameObject:
   - component: {fileID: 5160324391690898095}
   - component: {fileID: 7246958912600245975}
   - component: {fileID: 715383108920225477}
-  - component: {fileID: 4868639102582297324}
+  - component: {fileID: 4989342957103591226}
   m_Layer: 0
   m_Name: renderPlaneSphere
   m_TagString: Untagged
@@ -407,7 +409,7 @@ Transform:
   m_GameObject: {fileID: 2443820323267841551}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5.6568, y: 5.6568, z: 0}
+  m_LocalScale: {x: 5.6568, y: 5.6568, z: 0.01}
   m_Children: []
   m_Father: {fileID: 799194061766690515}
   m_RootOrder: 0
@@ -459,8 +461,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &4868639102582297324
-SphereCollider:
+--- !u!65 &4989342957103591226
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -470,7 +472,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 0.99999994, y: 0.99999994, z: 60}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3959825112589497910
 GameObject:
@@ -503,8 +505,6 @@ Transform:
   m_Children:
   - {fileID: 3959825113035676860}
   - {fileID: 726259887210780803}
-  - {fileID: 9055243019123410442}
-  - {fileID: 799194061766690515}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -537,6 +537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   linkedPortal: {fileID: 0}
+  renderPlane: {fileID: 0}
   planeShape: 0
 --- !u!1 &3959825113035676861
 GameObject:
@@ -734,8 +735,8 @@ Transform:
   m_Children:
   - {fileID: 5379154781173191888}
   - {fileID: 5572315109620161377}
-  m_Father: {fileID: 3959825112589497909}
-  m_RootOrder: 2
+  m_Father: {fileID: 726259887210780803}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5839589237536674549
 GameObject:
@@ -1216,7 +1217,7 @@ GameObject:
   - component: {fileID: 1440898890386658415}
   m_Layer: 0
   m_Name: renderPlaneSquare
-  m_TagString: Untagged
+  m_TagString: PLANE_RENDER_SQUARE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1418,6 +1419,6 @@ Transform:
   m_Children:
   - {fileID: 5160324391690898095}
   - {fileID: 2385555914451281367}
-  m_Father: {fileID: 3959825112589497909}
-  m_RootOrder: 3
+  m_Father: {fileID: 726259887210780803}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
